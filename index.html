@@ -1,261 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>BOOG | Systems & Advice</title>
-<meta charset="UTF-8">
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/6/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+<meta name="theme-color" content="#111827">
+<title>BOOG Energy — Storage, made simple</title>
 <style>
-body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
-body {font-size:16px;}
-.photo-grid {column-count:2;column-gap:16px}
-.photo-grid img {display:block;width:100%;margin-top:16px;opacity:0.8;cursor:pointer}
-.photo-grid img:hover {opacity:1}
-dialog {
-  border:0;
-  padding:0;
-  width:min(900px,90%);
-}
-dialog::backdrop {
-  background:rgba(0,0,0,0.85);
-}
-@media (max-width:600px) {
-  .photo-grid {column-count:1}
-}
-
-/* Header becomes fixed only after scrolling */
-#stickyTitle.is-fixed {
-  position: fixed;
-  top: 0;
-  left: -250px; /* VERANDER DIT: Vul hier de exacte breedte van jouw sidebar in (bijv. 250px of 20rem) */
-  right: 0;    /* Zorgt ervoor dat de strook helemaal tot het rechter eind loopt */
-  z-index: 5;
-  background: white;
-  padding: 10px 20px; /* Optioneel: 10px boven/onder, 20px links/rechts voor wat ademruimte voor de tekst */
-  margin: 0;   /* Verwijdert eventuele ongewenste marges die de spleet veroorzaken */
-  box-sizing: border-box;
-}
-
-/* Prevent content from jumping when the title becomes fixed */
-#stickySpacer {
-  display: none;
-}
-
+:root{--ink:#111827;--muted:#64748b;--accent:#c8f169;--paper:#f5f6f2;--line:#dce1d8;--white:#fff}
+*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
+a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.sidebar{position:fixed;inset:0 auto 0 0;width:245px;background:var(--ink);color:#fff;padding:34px 26px;display:flex;flex-direction:column;z-index:5}.brand{font-size:25px;font-weight:850;letter-spacing:-1.5px;display:flex;align-items:center;gap:10px}.brand-mark{width:27px;height:27px;background:var(--accent);border-radius:8px;display:inline-block;position:relative}.brand-mark:after{content:"";position:absolute;width:8px;height:15px;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(35deg);left:9px;top:3px}.brand small{display:block;color:#aab2c0;font-size:10px;letter-spacing:2px;font-weight:600;margin-top:-3px}.nav{display:grid;gap:8px;margin-top:68px}.nav a{padding:12px 14px;border-radius:9px;color:#c7ced8;transition:.2s}.nav a:hover,.nav a.active{background:#283142;color:#fff}.nav a.active:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin:0 10px 1px 0}.side-bottom{margin-top:auto;color:#aab2c0;font-size:12px}.side-bottom span{color:var(--accent)}main{margin-left:245px;max-width:1500px}.wrap{padding:70px clamp(24px,6vw,90px)}.eyebrow{text-transform:uppercase;letter-spacing:2.5px;font-size:11px;font-weight:800;color:#607044}.hero{min-height:650px;background:#18212b;color:white;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:32px;padding-top:70px;padding-bottom:70px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:400px;height:400px;border:1px solid #ffffff18;border-radius:50%;right:-100px;top:-140px;box-shadow:0 0 0 50px #ffffff08,0 0 0 100px #ffffff05;pointer-events:none}.hero h1{font-size:clamp(44px,5.4vw,78px);line-height:.99;letter-spacing:-4px;margin:20px 0 25px;max-width:700px}.hero h1 em{font-style:normal;color:var(--accent)}.hero p{max-width:490px;color:#c3cad3;font-size:17px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:7px;padding:13px 19px;font-weight:750;cursor:pointer;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--accent);color:var(--ink)}.btn-ghost{border:1px solid #68717b;color:white;background:transparent}.hero-visual{position:relative;min-height:410px;display:flex;align-items:center;justify-content:center}.hero-visual img{width:100%;height:430px;object-fit:cover;border-radius:14px;filter:saturate(.7);opacity:.9}.hero-stat{position:absolute;bottom:20px;left:-20px;background:var(--accent);color:var(--ink);padding:18px 22px;border-radius:10px;box-shadow:0 12px 40px #0003}.hero-stat strong{display:block;font-size:28px;line-height:1.2}.hero-stat span{font-size:12px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:35px}.section-head h2{font-size:clamp(34px,4vw,52px);letter-spacing:-2px;line-height:1.05;margin:8px 0 0}.section-head p{max-width:430px;color:var(--muted);margin:0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}.about-copy{font-size:18px;max-width:600px}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:35px}.stat{border-top:2px solid var(--ink);padding-top:13px}.stat strong{display:block;font-size:28px;letter-spacing:-1px}.stat span{font-size:12px;color:var(--muted)}.product-section{background:#e9ece5}.product-intro{max-width:680px;color:var(--muted);margin-top:12px}.product-slider{display:grid;grid-template-columns:1fr 1fr;gap:22px}.product-card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e2e5df}.product-img{height:240px;position:relative;background:#d7ddd3}.product-img img{width:100%;height:100%;object-fit:cover;display:block}.product-tag{position:absolute;left:16px;top:16px;background:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:850;padding:6px 10px;border-radius:5px}.product-content{padding:24px}.product-content h3{font-size:28px;letter-spacing:-1px;margin:0 0 8px}.product-content p{color:var(--muted);margin:0 0 18px}.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:18px}.price{font-size:20px;font-weight:800}.price small{display:block;font-size:11px;font-weight:500;color:var(--muted)}.text-btn{font-weight:800;border-bottom:2px solid var(--accent);padding-bottom:3px}.capacity-panel{margin-top:24px;background:var(--ink);color:white;padding:30px;border-radius:14px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}.capacity-panel h3{font-size:28px;line-height:1.1;letter-spacing:-1px;margin:8px 0}.capacity-panel p{color:#c4cbd5;margin-bottom:0}.capacity-controls label{display:block;font-size:12px;color:#c4cbd5;margin-bottom:9px}.capacity-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.capacity-options button{padding:12px 4px;border:1px solid #596270;background:transparent;color:#fff;border-radius:7px;cursor:pointer;font-weight:750}.capacity-options button.selected,.capacity-options button:hover{background:var(--accent);border-color:var(--accent);color:var(--ink)}.selected-price{display:flex;justify-content:space-between;align-items:end;margin-top:20px;padding-top:17px;border-top:1px solid #424b58;gap:15px}.selected-price strong{font-size:30px;line-height:1.1}.selected-price small{display:block;color:#c4cbd5;font-size:11px}.selected-price .quote-note{font-size:12px;color:#c4cbd5;max-width:180px;text-align:right}.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{position:relative;min-height:260px;border-radius:10px;overflow:hidden;background:#d5d9d0}.project img{position:absolute;width:100%;height:100%;object-fit:cover;transition:transform .4s}.project:hover img{transform:scale(1.05)}.project:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#101820d9)}.project-label{position:absolute;z-index:1;bottom:18px;left:18px;color:white}.project-label strong{display:block;font-size:18px}.project-label span{font-size:12px;color:#d9e0e4}.contact-section{background:#e9ece5}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px}.contact-details{margin-top:30px;display:grid;gap:17px}.detail{display:flex;gap:13px;align-items:start}.detail-icon{width:36px;height:36px;border-radius:8px;background:var(--accent);display:grid;place-items:center;font-weight:900;flex-shrink:0}.detail small{display:block;color:var(--muted)}.contact-form{background:white;padding:28px;border-radius:12px;display:grid;gap:16px}.field label{display:block;font-size:12px;font-weight:750;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;padding:12px 13px;border:1px solid #d9ded6;border-radius:6px;background:#fbfcfa;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:#819b4b}.field textarea{min-height:120px;resize:vertical}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-message{font-size:13px;color:#48651f;display:none}.footer{padding:24px clamp(24px,6vw,90px);background:var(--ink);color:#aab2c0;font-size:12px;display:flex;justify-content:space-between;gap:15px}.footer strong{color:white}.mobile-head{display:none}
+@media(max-width:1000px){.sidebar{width:205px;padding:28px 18px}main{margin-left:205px}.wrap{padding:55px 30px}.hero{grid-template-columns:1fr}.hero-visual{min-height:300px}.hero-visual img{height:300px}.hero-stat{left:12px}.projects-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:25px}}
+@media(max-width:700px){.sidebar{position:sticky;top:0;width:100%;height:auto;padding:13px 18px;display:block}.brand{font-size:21px}.brand small,.side-bottom{display:none}.nav{display:flex;overflow:auto;gap:5px;margin:10px 0 0}.nav a{white-space:nowrap;padding:7px 10px;font-size:13px}.nav a.active:before{display:none}main{margin:0}.wrap{padding:48px 20px}.hero{padding-top:48px;padding-bottom:48px;min-height:0;gap:20px}.hero h1{font-size:52px;letter-spacing:-2.8px}.hero-visual{min-height:250px}.hero-visual img{height:260px}.hero-stat{bottom:8px}.section-head{display:block}.section-head p{margin-top:15px}.about-grid,.product-slider,.capacity-panel,.contact-grid{grid-template-columns:1fr}.stats{gap:9px}.stat strong{font-size:23px}.capacity-panel{padding:22px}.projects-grid{grid-template-columns:1fr 1fr;gap:10px}.project{min-height:210px}.project-label{left:12px;bottom:12px}.project-label strong{font-size:15px}.form-row{grid-template-columns:1fr}.footer{padding:22px 20px;flex-direction:column}}
 </style>
 </head>
 <body>
-
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-red w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:200px;font-weight:bold;" id="mySidebar"><br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-    <h3 class="w3-padding-4"><img src="Logo-animated.gif" alt="Logo" style="width:100%"></h3>
+<aside class="sidebar">
+  <a class="brand" href="#home" aria-label="BOOG Energy home"><span class="brand-mark"></span><span>BOOG<small>ENERGY SYSTEMS</small></span></a>
+  <nav class="nav" aria-label="Main navigation">
+    <a class="active" href="#about">About</a><a href="#products">Products</a><a href="#projects">Projects</a><a href="#contact">Contact</a>
+  </nav>
+  <div class="side-bottom">Energy storage, thoughtfully engineered.<br><br><span>●</span> Built for what’s next</div>
+</aside>
+<main>
+<section class="hero wrap" id="home">
+  <div><div class="eyebrow" style="color:#c8f169">Smarter energy starts here</div>
+    <h1>Power your<br>next <em>move.</em></h1>
+    <p>Meet BOOG energy storage systems. A straightforward, dependable way to make more of the energy you generate and use.</p>
+    <div class="actions"><a class="btn btn-primary" href="#products">Explore products ↗</a><a class="btn btn-ghost" href="#contact">Talk to our team</a></div>
   </div>
-  <div class="w3-bar-block">
-    <a href="#" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Home</a> 
-    <a href="#showcase" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Showcase</a> 
-    <a href="#services" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Services</a>  
-    <a href="#packages" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Packages</a> 
-    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white">Contact</a>
+  <div class="hero-visual"><img src="https://images.unsplash.com/photo-1473341304170-971275b4d0f?auto=format&fit=crop&w=1200&q=85" alt="Power infrastructure at dusk"><div class="hero-stat"><strong>BOOG</strong><span>Energy storage. Made simple.</span></div></div>
+</section>
+<section class="wrap" id="about">
+  <div class="section-head"><div><div class="eyebrow">01 / About us</div><h2>Energy with<br>a clearer purpose.</h2></div><p>We believe energy storage should be powerful, practical and easy to understand.</p></div>
+  <div class="about-grid"><div class="about-copy">BOOG is building a more flexible energy future with thoughtfully designed storage solutions for homes, businesses and projects. Our focus is simple: dependable products, clear choices and support that starts with listening.<p class="muted">Replace this introduction with your company story, mission, expertise and the people behind BOOG.</p></div>
+    <div><p class="muted">Our approach</p><p><strong>Designed around real needs.</strong> Choose the capacity that fits your project, with a clear path from first conversation to installation.</p><p><strong>Simple by design.</strong> A focused product range, useful information and a team ready to help you choose.</p><div class="stats"><div class="stat"><strong>02</strong><span>Product families</span></div><div class="stat"><strong>04</strong><span>BOOG-S capacities</span></div><div class="stat"><strong>01</strong><span>Clear goal: better energy</span></div></div></div>
   </div>
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>BOOG | Systems & Advice</span>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
-
-<!-- !PAGE CONTENT! -->
-<div class="w3-main" style="margin-left:340px;margin-right:40px">
-
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo" id="stickyTitle"><b>BOOG | Systems & Advice</b></h1>
-    <div id="stickySpacer"></div>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Showcase.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
+</section>
+<section class="wrap product-section" id="products">
+  <div class="section-head"><div><div class="eyebrow">02 / Products</div><h2>Meet the BOOG range.</h2></div><p>Two product families. Flexible options. Find the system that fits your energy needs.</p></div>
+  <div class="product-slider">
+    <article class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=85" alt="Modern energy and electrical equipment"><span class="product-tag">Powerful & flexible</span></div><div class="product-content"><h3>BOOG-M</h3><p>A versatile energy storage solution for projects that need a tailored approach. Add your specifications, benefits and compatible systems here.</p><div class="product-bottom"><div class="price">Price on request<small>Configuration dependent</small></div><a class="text-btn" href="#contact" onclick="document.getElementById('interest').value='BOOG-M';">Enquire ↗</a></div></div></article>
+    <article class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1473341304170-971275b4d0f?auto=format&fit=crop&w=1000&q=85" alt="Energy infrastructure"><span class="product-tag">Standard capacities</span></div><div class="product-content"><h3>BOOG-S</h3><p>A straightforward choice with four standardized capacity options. Select a capacity below to view its price or request a quote.</p><div class="product-bottom"><div class="price">4 capacities<small>8 · 12 · 15 · 20 kWh</small></div><a class="text-btn" href="#capacity">Choose size ↗</a></div></div></article>
   </div>
-  
-  <!-- Photo gallery (modal) -->
-  <div class="photo-grid">
-    <img src="/w3images/kitchenconcrete.jpg" onclick="onClick(this)" alt="Concrete meets bricks" width="700" height="578">
-    <img src="/w3images/livingroom.jpg" onclick="onClick(this)" alt="Light, white and tight Scandinavian design" width="900" height="500">
-    <img src="/w3images/diningroom.jpg" onclick="onClick(this)" alt="White walls with designer chairs" width="900" height="500">
-    <img src="/w3images/atrium.jpg" onclick="onClick(this)" alt="Windows for the atrium" width="700" height="578">
-    <img src="/w3images/bedroom.jpg" onclick="onClick(this)" alt="Bedroom and office in one space" width="900" height="500">
-    <img src="/w3images/livingroom2.jpg" onclick="onClick(this)" alt="Scandinavian design" width="900" height="500">
+  <div class="capacity-panel" id="capacity">
+    <div><div class="eyebrow" style="color:#c8f169">BOOG-S / Capacity selector</div><h3>Choose your capacity.</h3><p>Select a size to see the corresponding price. The figures below are editable placeholders until you add your confirmed pricing.</p></div>
+    <div class="capacity-controls"><label for="capacitySelect">Storage capacity</label><div class="capacity-options" role="group" aria-label="Choose BOOG-S capacity"><button type="button" data-cap="8" class="selected" aria-pressed="true">8 kWh</button><button type="button" data-cap="12" aria-pressed="false">12 kWh</button><button type="button" data-cap="15" aria-pressed="false">15 kWh</button><button type="button" data-cap="20" aria-pressed="false">20 kWh</button></div><div class="selected-price"><div><small id="selectedCapacity">BOOG-S / 8 kWh</small><strong id="selectedPrice">Price on request</strong><small id="priceDisclaimer">Excl. VAT · final quote required</small></div><div class="quote-note">Need help choosing? We’ll help you find the right fit.</div></div><a class="btn btn-primary" style="margin-top:18px;width:100%" href="#contact" onclick="document.getElementById('interest').value='BOOG-S '+document.getElementById('selectedCapacity').textContent.split('/ ')[1];">Request this configuration ↗</a></div>
   </div>
-
-  <!-- Image Dialog -->
-<dialog id="modal01" class="w3-black w3-animate-zoom">
-
-  <button
-  class="w3-button w3-black w3-xxlarge w3-display-topright"
-  commandfor="modal01"
-  command="close"
-  title="Close image">
-  ×
-  </button>
-
-  <div class="w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image" alt="">
-    <p id="caption" class="w3-large"></p>
+</section>
+<section class="wrap" id="projects">
+  <div class="section-head"><div><div class="eyebrow">03 / Projects</div><h2>Built for the real world.</h2></div><p>A selection of recent installations and collaborations. Replace these sample images and captions with your own project portfolio.</p></div>
+  <div class="projects-grid">
+    <article class="project"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80" alt="Solar panels in a field"><div class="project-label"><strong>Renewable integration</strong><span>Project / 2026</span></div></article>
+    <article class="project"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Solar panels under a blue sky"><div class="project-label"><strong>Solar + storage</strong><span>Project / 2026</span></div></article>
+    <article class="project"><img src="https://images.unsplash.com/photo-1473341304170-971275b4d0f?auto=format&fit=crop&w=800&q=80" alt="Electric power station"><div class="project-label"><strong>Energy infrastructure</strong><span>Project / 2025</span></div></article>
+    <article class="project"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80" alt="Renewable energy installation"><div class="project-label"><strong>Commercial site</strong><span>Project / 2025</span></div></article>
+    <article class="project"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="Solar panels on a rooftop"><div class="project-label"><strong>Rooftop installation</strong><span>Project / 2025</span></div></article>
+    <article class="project"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80" alt="Energy project landscape"><div class="project-label"><strong>Made to fit</strong><span>Project / 2025</span></div></article>
   </div>
-
-</dialog>
-
-<!-- Services -->
-  <div class="w3-container" id="services" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Services.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>We are an interior design service that focuses on what's best for your home and what's best for you!</p>
-    <p>Some text about our services - what we do and what we offer. We are lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure
-    dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor
-    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-    </p>
-  </div>
-
-  <!-- Packages / Pricing Tables -->
-  <div class="w3-container" id="packages" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Packages.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Some text about our prices. Lorem ipsum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure</p>
-  </div>
-
-  <div class="w3-grid" style="grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:16px">
-    <div>
-      <ul class="w3-ul w3-light-grey w3-center">
-        <li class="w3-dark-grey w3-xlarge w3-padding-32">Basic</li>
-        <li class="w3-padding-16">Floorplanning</li>
-        <li class="w3-padding-16">10 hours support</li>
-        <li class="w3-padding-16">Photography</li>
-        <li class="w3-padding-16">20% furniture discount</li>
-        <li class="w3-padding-16">Good deals</li>
-        <li class="w3-padding-16">
-          <h2>$ 199</h2>
-          <span class="w3-opacity">per room</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-white w3-padding-large w3-hover-black">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-        
-    <div>
-      <ul class="w3-ul w3-light-grey w3-center">
-        <li class="w3-red w3-xlarge w3-padding-32">Pro</li>
-        <li class="w3-padding-16">Floorplanning</li>
-        <li class="w3-padding-16">50 hours support</li>
-        <li class="w3-padding-16">Photography</li>
-        <li class="w3-padding-16">50% furniture discount</li>
-        <li class="w3-padding-16">GREAT deals</li>
-        <li class="w3-padding-16">
-          <h2>$ 249</h2>
-          <span class="w3-opacity">per room</span>
-        </li>
-        <li class="w3-light-grey w3-padding-24">
-          <button class="w3-button w3-red w3-padding-large w3-hover-black">Sign Up</button>
-        </li>
-      </ul>
-    </div>
-  </div>
-  
-  <!-- Contact -->
-  <div class="w3-container" id="contact" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-red"><b>Contact.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-    <p>Do you want us to style your home? Fill out the form and tell us the details. We love meeting new people!</p>
-    <form action="/action_page.php" target="_blank">
-      <div class="w3-section">
-        <label>Name</label>
-        <input class="w3-input w3-border" type="text" name="Name" required>
-      </div>
-      <div class="w3-section">
-        <label>Email</label>
-        <input class="w3-input w3-border" type="email" name="Email" required>
-      </div>
-      <div class="w3-section">
-        <label>Message</label>
-        <input class="w3-input w3-border" type="text" name="Message" required>
-      </div>
-      <button type="submit" class="w3-button w3-block w3-padding-large w3-red w3-margin-bottom">Send Message</button>
-    </form>  
-  </div>
-
-<!-- End page content -->
-</div>
-
-<!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-center w3-padding-32" style="margin-top:75px;padding-right:58px">
-<p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-opacity">w3.css</a></p></div>
-
+</section>
+<section class="wrap contact-section" id="contact">
+  <div class="section-head"><div><div class="eyebrow">04 / Contact</div><h2>Let’s talk energy.</h2></div><p>Have a project in mind or want to know more about BOOG? Send us a message.</p></div>
+  <div class="contact-grid"><div><p class="muted">Tell us what you’re working on. We’ll get back to you to discuss the next steps.</p><div class="contact-details"><div class="detail"><div class="detail-icon">↗</div><div><strong>Address</strong><small>[Street and number]<br>[Postcode, City, Country]</small></div></div><div class="detail"><div class="detail-icon">@</div><div><strong>Email</strong><small>[hello@yourcompany.com]</small></div></div><div class="detail"><div class="detail-icon">☎</div><div><strong>Phone</strong><small>[+00 000 000 000]</small></div></div><div class="detail"><div class="detail-icon">◷</div><div><strong>Office hours</strong><small>[Weekdays, 09:00–17:00]</small></div></div></div></div>
+  <form class="contact-form" id="contactForm"><div class="form-row"><div class="field"><label for="name">Your name *</label><input id="name" name="name" placeholder="Jane Smith" required></div><div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" placeholder="jane@company.com" required></div></div><div class="field"><label for="interest">Product / topic</label><select id="interest" name="interest"><option value="">Choose a topic (optional)</option><option>BOOG-M</option><option>BOOG-S 8 kWh</option><option>BOOG-S 12 kWh</option><option>BOOG-S 15 kWh</option><option>BOOG-S 20 kWh</option><option>Project partnership</option><option>Other</option></select></div><div class="field"><label for="message">How can we help? *</label><textarea id="message" name="message" placeholder="Tell us a little about your project…" required></textarea></div><button class="btn btn-primary" type="submit">Prepare message ↗</button><p class="form-message" id="formMessage" role="status">Your message is ready to send. Connect this form to your email or website backend before publishing.</p><small class="muted">Demo form: no information is sent or stored by this prototype.</small></form></div>
+</section>
+<footer class="footer"><span>© <span id="year"></span> <strong>BOOG Energy Systems</strong>. All rights reserved.</span><span>Designed for a more flexible energy future.</span></footer>
+</main>
 <script>
-const sidebar = document.getElementById("mySidebar");
-const overlay = document.getElementById("myOverlay");
-const imageDialog = document.getElementById("modal01");
-const dialogImage = document.getElementById("img01");
-const caption = document.getElementById("caption");
-
-function w3_open() {
-  sidebar.style.display = "block";
-  overlay.style.display = "block";
-}
-
-function w3_close() {
-  sidebar.style.display = "none";
-  overlay.style.display = "none";
-}
-
-function onClick(image) {
-  dialogImage.src = image.src;
-  dialogImage.alt = image.alt;
-  caption.textContent = image.alt;
-  imageDialog.showModal();
-}
-
-const stickyTitle = document.getElementById("stickyTitle");
-const stickySpacer = document.getElementById("stickySpacer");
-const originalTop = stickyTitle.getBoundingClientRect().top
-  + window.scrollY;
-
-function updateStickyTitle() {
-  const shouldStick = window.scrollY >= originalTop;
-
-  if (shouldStick && !stickyTitle.classList.contains("is-fixed")) {
-    stickySpacer.style.height = stickyTitle.offsetHeight + "px";
-    stickySpacer.style.display = "block";
-
-    stickyTitle.classList.add("is-fixed");
-    stickyTitle.style.left =
-      stickyTitle.parentElement.getBoundingClientRect().left + "px";
-    stickyTitle.style.width =
-      stickyTitle.parentElement.getBoundingClientRect().width + "px";
-  } else if (!shouldStick && stickyTitle.classList.contains("is-fixed")) {
-    stickyTitle.classList.remove("is-fixed");
-    stickyTitle.style.left = "";
-    stickyTitle.style.width = "";
-
-    stickySpacer.style.display = "none";
-    stickySpacer.style.height = "";
-  }
-}
-
-window.addEventListener("scroll", updateStickyTitle);
-window.addEventListener("resize", () => {
-  if (stickyTitle.classList.contains("is-fixed")) {
-    stickyTitle.style.left =
-      stickyTitle.parentElement.getBoundingClientRect().left + 15 + "px";
-    stickyTitle.style.width =
-      stickyTitle.parentElement.getBoundingClientRect().width + "px";
-  }
-});
-
+const capacityPrices = {8:null,12:null,15:null,20:null}; // Replace null with confirmed prices, e.g. 8499
+const formatPrice = value => value == null ? 'Price on request' : new Intl.NumberFormat('en-GB',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(value);
+document.querySelectorAll('[data-cap]').forEach(button=>button.addEventListener('click',()=>{
+  document.querySelectorAll('[data-cap]').forEach(b=>{b.classList.remove('selected');b.setAttribute('aria-pressed','false')});
+  button.classList.add('selected');button.setAttribute('aria-pressed','true');
+  const cap=button.dataset.cap;
+  document.getElementById('selectedCapacity').textContent=`BOOG-S / ${cap} kWh`;
+  document.getElementById('selectedPrice').textContent=formatPrice(capacityPrices[cap]);
+  document.getElementById('interest').value=`BOOG-S ${cap} kWh`;
+}));
+document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>{
+  document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('active'));link.classList.add('active');
+}));
+document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('formMessage').style.display='block'});
+document.getElementById('year').textContent=new Date().getFullYear();
 </script>
-
 </body>
 </html>
