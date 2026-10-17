@@ -230,7 +230,7 @@ function updateStickyTitle() {
 
     stickyTitle.classList.add("is-fixed");
     stickyTitle.style.left =
-      stickyTitle.parentElement.getBoundingClientRect().left + 30 + "px";
+      stickyTitle.parentElement.getBoundingClientRect().left + 15 + "px";
     stickyTitle.style.width =
       stickyTitle.parentElement.getBoundingClientRect().width + "px";
   } else if (!shouldStick && stickyTitle.classList.contains("is-fixed")) {
