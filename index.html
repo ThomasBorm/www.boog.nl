@@ -28,7 +28,7 @@ dialog::backdrop {
 #stickyTitle.is-fixed {
   position: fixed;
   top: 0;
-  left: -200px; /* VERANDER DIT: Vul hier de exacte breedte van jouw sidebar in (bijv. 250px of 20rem) */
+  left: -250px; /* VERANDER DIT: Vul hier de exacte breedte van jouw sidebar in (bijv. 250px of 20rem) */
   right: 0;    /* Zorgt ervoor dat de strook helemaal tot het rechter eind loopt */
   z-index: 5;
   background: white;
@@ -220,7 +220,6 @@ function onClick(image) {
 
 const stickyTitle = document.getElementById("stickyTitle");
 const stickySpacer = document.getElementById("stickySpacer");
-
 const originalTop = stickyTitle.getBoundingClientRect().top
   + window.scrollY;
 
@@ -233,7 +232,7 @@ function updateStickyTitle() {
 
     stickyTitle.classList.add("is-fixed");
     stickyTitle.style.left =
-      stickyTitle.parentElement.getBoundingClientRect().left + 5 + "px";
+      stickyTitle.parentElement.getBoundingClientRect().left + "px";
     stickyTitle.style.width =
       stickyTitle.parentElement.getBoundingClientRect().width + "px";
   } else if (!shouldStick && stickyTitle.classList.contains("is-fixed")) {
