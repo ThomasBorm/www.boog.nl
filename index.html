@@ -23,6 +23,49 @@ dialog::backdrop {
 @media (max-width:600px) {
   .photo-grid {column-count:1}
 }
+
+/* Fixed white header */
+.sticky-header {
+  position: fixed;
+  top: 0;
+  left: 200px;
+  right: 0;
+  z-index: 5;
+  background: #ffffff;
+  padding: 12px 40px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.08);
+  display: flex;
+  align-items: center;
+  min-height: 60px;
+}
+
+/* Header text */
+.sticky-header span {
+  font-family: "Poppins", sans-serif;
+  font-size: 24px;
+  font-weight: bold;
+  color: #000000;
+}
+
+/* Header menu button */
+.sticky-header .w3-button {
+  background: #ffffff;
+  color: #000000;
+}
+
+/* Smaller screens */
+@media (max-width: 992px) {
+  .sticky-header {
+    left: 0;
+    padding: 8px 16px;
+    min-height: 56px;
+  }
+
+  .sticky-header span {
+    font-size: 18px;
+  }
+}
+
 </style>
 </head>
 <body>
@@ -42,10 +85,12 @@ dialog::backdrop {
   </div>
 </nav>
 
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-red w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-red w3-margin-right" onclick="w3_open()">☰</a>
-  <span>BOOG | Systems & Advice</span>
+<!-- Fixed white header -->
+<header class="sticky-header">
+  <a href="javascript:void(0)"
+     class="w3-button w3-hide-large w3-margin-right"
+     onclick="w3_open()">☰</a>
+  <span>BOOG | Systems &amp; Advice</span>
 </header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -54,12 +99,11 @@ dialog::backdrop {
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
 
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-jumbo"><b>BOOG | Systems & Advice</b></h1>
-    <h1 class="w3-xxxlarge w3-text-red"><b>Showcase.</b></h1>
-    <hr style="width:50px;border:5px solid red" class="w3-round">
-  </div>
+<!-- Header -->
+<div class="w3-container" style="margin-top:100px" id="showcase">
+  <h1 class="w3-xxxlarge w3-text-red"><b>Showcase.</b></h1>
+  <hr style="width:50px;border:5px solid red" class="w3-round">
+</div>
   
   <!-- Photo gallery (modal) -->
   <div class="photo-grid">
