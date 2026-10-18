@@ -1,89 +1,1590 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="nl">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#111827">
-<title>BOOG | Systems & Advice</title>
-<style>
-:root{--ink:#111827;--muted:#64748b;--accent:#c8f169;--paper:#f5f6f2;--line:#dce1d8;--white:#fff}
-*{box-sizing:border-box}html{scroll-behavior:smooth;scroll-padding-top:28px}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.6 Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}
-a{color:inherit;text-decoration:none}button,input,textarea,select{font:inherit}.sidebar{position:fixed;inset:0 auto 0 0;width:245px;background:var(--ink);color:#fff;padding:34px 26px;display:flex;flex-direction:column;z-index:5}.brand{font-size:25px;font-weight:850;letter-spacing:-1.5px;display:flex;align-items:center;gap:10px}.brand-mark{width:27px;height:27px;background:var(--accent);border-radius:8px;display:inline-block;position:relative}.brand-mark:after{content:"";position:absolute;width:8px;height:15px;border-right:3px solid var(--ink);border-bottom:3px solid var(--ink);transform:rotate(35deg);left:9px;top:3px}.brand small{display:block;color:#aab2c0;font-size:10px;letter-spacing:2px;font-weight:600;margin-top:-3px}.nav{display:grid;gap:8px;margin-top:68px}.nav a{padding:12px 14px;border-radius:9px;color:#c7ced8;transition:.2s}.nav a:hover,.nav a.active{background:#283142;color:#fff}.nav a.active:before{content:"";display:inline-block;width:7px;height:7px;border-radius:50%;background:var(--accent);margin:0 10px 1px 0}.side-bottom{margin-top:auto;color:#aab2c0;font-size:12px}.side-bottom span{color:var(--accent)}main{margin-left:245px;max-width:1500px}.wrap{padding:70px clamp(24px,6vw,90px)}.eyebrow{text-transform:uppercase;letter-spacing:2.5px;font-size:11px;font-weight:800;color:#607044}.hero{min-height:650px;background:#18212b;color:white;display:grid;grid-template-columns:1.05fr .95fr;align-items:center;gap:32px;padding-top:70px;padding-bottom:70px;overflow:hidden;position:relative}.hero:after{content:"";position:absolute;width:400px;height:400px;border:1px solid #ffffff18;border-radius:50%;right:-100px;top:-140px;box-shadow:0 0 0 50px #ffffff08,0 0 0 100px #ffffff05;pointer-events:none}.hero h1{font-size:clamp(44px,5.4vw,78px);line-height:.99;letter-spacing:-4px;margin:20px 0 25px;max-width:700px}.hero h1 em{font-style:normal;color:var(--accent)}.hero p{max-width:490px;color:#c3cad3;font-size:17px}.actions{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.btn{display:inline-flex;align-items:center;justify-content:center;border:0;border-radius:7px;padding:13px 19px;font-weight:750;cursor:pointer;transition:transform .2s,background .2s}.btn:hover{transform:translateY(-2px)}.btn-primary{background:var(--accent);color:var(--ink)}.btn-ghost{border:1px solid #68717b;color:white;background:transparent}.hero-visual{position:relative;min-height:410px;display:flex;align-items:center;justify-content:center}.hero-visual img{width:100%;height:430px;object-fit:cover;border-radius:14px;filter:saturate(.7);opacity:.9}.hero-stat{position:absolute;bottom:20px;left:-20px;background:var(--accent);color:var(--ink);padding:18px 22px;border-radius:10px;box-shadow:0 12px 40px #0003}.hero-stat strong{display:block;font-size:28px;line-height:1.2}.hero-stat span{font-size:12px}.section-head{display:flex;justify-content:space-between;align-items:end;gap:24px;margin-bottom:35px}.section-head h2{font-size:clamp(34px,4vw,52px);letter-spacing:-2px;line-height:1.05;margin:8px 0 0}.section-head p{max-width:430px;color:var(--muted);margin:0}.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:start}.about-copy{font-size:18px;max-width:600px}.muted{color:var(--muted)}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:35px}.stat{border-top:2px solid var(--ink);padding-top:13px}.stat strong{display:block;font-size:28px;letter-spacing:-1px}.stat span{font-size:12px;color:var(--muted)}.product-section{background:#e9ece5}.product-intro{max-width:680px;color:var(--muted);margin-top:12px}.product-slider{display:grid;grid-template-columns:1fr 1fr;gap:22px}.product-card{background:#fff;border-radius:14px;overflow:hidden;border:1px solid #e2e5df}.product-img{height:240px;position:relative;background:#d7ddd3}.product-img img{width:100%;height:100%;object-fit:cover;display:block}.product-tag{position:absolute;left:16px;top:16px;background:var(--accent);font-size:11px;text-transform:uppercase;letter-spacing:1px;font-weight:850;padding:6px 10px;border-radius:5px}.product-content{padding:24px}.product-content h3{font-size:28px;letter-spacing:-1px;margin:0 0 8px}.product-content p{color:var(--muted);margin:0 0 18px}.product-bottom{display:flex;justify-content:space-between;align-items:center;gap:12px;border-top:1px solid var(--line);padding-top:18px}.price{font-size:20px;font-weight:800}.price small{display:block;font-size:11px;font-weight:500;color:var(--muted)}.text-btn{font-weight:800;border-bottom:2px solid var(--accent);padding-bottom:3px}.capacity-panel{margin-top:24px;background:var(--ink);color:white;padding:30px;border-radius:14px;display:grid;grid-template-columns:1fr 1fr;gap:30px;align-items:center}.capacity-panel h3{font-size:28px;line-height:1.1;letter-spacing:-1px;margin:8px 0}.capacity-panel p{color:#c4cbd5;margin-bottom:0}.capacity-controls label{display:block;font-size:12px;color:#c4cbd5;margin-bottom:9px}.capacity-options{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}.capacity-options button{padding:12px 4px;border:1px solid #596270;background:transparent;color:#fff;border-radius:7px;cursor:pointer;font-weight:750}.capacity-options button.selected,.capacity-options button:hover{background:var(--accent);border-color:var(--accent);color:var(--ink)}.selected-price{display:flex;justify-content:space-between;align-items:end;margin-top:20px;padding-top:17px;border-top:1px solid #424b58;gap:15px}.selected-price strong{font-size:30px;line-height:1.1}.selected-price small{display:block;color:#c4cbd5;font-size:11px}.selected-price .quote-note{font-size:12px;color:#c4cbd5;max-width:180px;text-align:right}.projects-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}.project{position:relative;min-height:260px;border-radius:10px;overflow:hidden;background:#d5d9d0}.project img{position:absolute;width:100%;height:100%;object-fit:cover;transition:transform .4s}.project:hover img{transform:scale(1.05)}.project:after{content:"";position:absolute;inset:35% 0 0;background:linear-gradient(transparent,#101820d9)}.project-label{position:absolute;z-index:1;bottom:18px;left:18px;color:white}.project-label strong{display:block;font-size:18px}.project-label span{font-size:12px;color:#d9e0e4}.contact-section{background:#e9ece5}.contact-grid{display:grid;grid-template-columns:.8fr 1.2fr;gap:55px}.contact-details{margin-top:30px;display:grid;gap:17px}.detail{display:flex;gap:13px;align-items:start}.detail-icon{width:36px;height:36px;border-radius:8px;background:var(--accent);display:grid;place-items:center;font-weight:900;flex-shrink:0}.detail small{display:block;color:var(--muted)}.contact-form{background:white;padding:28px;border-radius:12px;display:grid;gap:16px}.field label{display:block;font-size:12px;font-weight:750;margin-bottom:6px}.field input,.field textarea,.field select{width:100%;padding:12px 13px;border:1px solid #d9ded6;border-radius:6px;background:#fbfcfa;outline:none}.field input:focus,.field textarea:focus,.field select:focus{border-color:#819b4b}.field textarea{min-height:120px;resize:vertical}.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}.form-message{font-size:13px;color:#48651f;display:none}.footer{padding:24px clamp(24px,6vw,90px);background:var(--ink);color:#aab2c0;font-size:12px;display:flex;justify-content:space-between;gap:15px}.footer strong{color:white}.mobile-head{display:none}
-@media(max-width:1000px){.sidebar{width:205px;padding:28px 18px}main{margin-left:205px}.wrap{padding:55px 30px}.hero{grid-template-columns:1fr}.hero-visual{min-height:300px}.hero-visual img{height:300px}.hero-stat{left:12px}.projects-grid{grid-template-columns:repeat(2,1fr)}.about-grid{gap:25px}}
-@media(max-width:700px){.sidebar{position:sticky;top:0;width:100%;height:auto;padding:13px 18px;display:block}.brand{font-size:21px}.brand small,.side-bottom{display:none}.nav{display:flex;overflow:auto;gap:5px;margin:10px 0 0}.nav a{white-space:nowrap;padding:7px 10px;font-size:13px}.nav a.active:before{display:none}main{margin:0}.wrap{padding:48px 20px}.hero{padding-top:48px;padding-bottom:48px;min-height:0;gap:20px}.hero h1{font-size:52px;letter-spacing:-2.8px}.hero-visual{min-height:250px}.hero-visual img{height:260px}.hero-stat{bottom:8px}.section-head{display:block}.section-head p{margin-top:15px}.about-grid,.product-slider,.capacity-panel,.contact-grid{grid-template-columns:1fr}.stats{gap:9px}.stat strong{font-size:23px}.capacity-panel{padding:22px}.projects-grid{grid-template-columns:1fr 1fr;gap:10px}.project{min-height:210px}.project-label{left:12px;bottom:12px}.project-label strong{font-size:15px}.form-row{grid-template-columns:1fr}.footer{padding:22px 20px;flex-direction:column}}
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111827">
+  <meta name="description" content="BOOG Systems & Advice: slimme en betaalbare energieopslag, mobiele voedingsunits en off-grid stroomoplossingen.">
+  <title>BOOG | Systems &amp; Advice</title>
 
-</style>
+  <style>
+    :root {
+      --ink: #111827;
+      --muted: #64748b;
+      --accent: #c8f169;
+      --paper: #f5f6f2;
+      --line: #dce1d8;
+      --white: #fff;
+      --sidebar-width: 245px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 28px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font: 16px/1.6 Inter, ui-sans-serif, system-ui,
+        -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    }
+
+    img {
+      max-width: 100%;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    input,
+    textarea,
+    select {
+      font: inherit;
+    }
+
+    button,
+    a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    /* Navigatie en logo */
+
+    .sidebar {
+      position: fixed;
+      inset: 0 auto 0 0;
+      width: var(--sidebar-width);
+      background: var(--ink);
+      color: #fff;
+      padding: 34px 26px;
+      display: flex;
+      flex-direction: column;
+      z-index: 10;
+      overflow-y: auto;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      min-width: 0;
+      line-height: 1.1;
+      font-size: 25px;
+      font-weight: 850;
+      letter-spacing: -1.5px;
+    }
+
+    .brand-logo {
+      display: block;
+      width: 54px;
+      height: 54px;
+      flex: 0 0 54px;
+      object-fit: contain;
+    }
+
+    .brand-copy {
+      display: block;
+      min-width: 0;
+    }
+
+    .brand small {
+      display: block;
+      margin-top: 5px;
+      color: #aab2c0;
+      font-size: 10px;
+      letter-spacing: 1.3px;
+      font-weight: 600;
+      line-height: 1.4;
+    }
+
+    .nav {
+      display: grid;
+      gap: 8px;
+      margin-top: 68px;
+    }
+
+    .nav a {
+      padding: 12px 14px;
+      border-radius: 9px;
+      color: #c7ced8;
+      transition: background .2s, color .2s;
+    }
+
+    .nav a:hover,
+    .nav a.active {
+      background: #283142;
+      color: #fff;
+    }
+
+    .nav a.active::before {
+      content: "";
+      display: inline-block;
+      width: 7px;
+      height: 7px;
+      border-radius: 50%;
+      background: var(--accent);
+      margin: 0 10px 1px 0;
+    }
+
+    .side-bottom {
+      margin-top: auto;
+      padding-top: 24px;
+      color: #aab2c0;
+      font-size: 12px;
+    }
+
+    .side-bottom span {
+      color: var(--accent);
+    }
+
+    main {
+      margin-left: var(--sidebar-width);
+      width: calc(100% - var(--sidebar-width));
+      max-width: 1500px;
+      min-width: 0;
+    }
+
+    .wrap {
+      padding: 70px clamp(24px, 6vw, 90px);
+      min-width: 0;
+    }
+
+    section {
+      scroll-margin-top: 24px;
+    }
+
+    .eyebrow {
+      color: #607044;
+      text-transform: uppercase;
+      letter-spacing: 2.5px;
+      font-size: 11px;
+      font-weight: 800;
+    }
+
+    /* Hero */
+
+    .hero {
+      position: relative;
+      min-height: 650px;
+      background: #18212b;
+      color: white;
+      display: grid;
+      grid-template-columns: minmax(0, 1fr);
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      width: 400px;
+      height: 400px;
+      border: 1px solid #ffffff18;
+      border-radius: 50%;
+      right: -100px;
+      top: -140px;
+      box-shadow: 0 0 0 50px #ffffff08,
+                  0 0 0 100px #ffffff05;
+      pointer-events: none;
+    }
+
+    .hero > div {
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      max-width: 800px;
+      margin: 20px 0 25px;
+      font-size: clamp(44px, 5.4vw, 78px);
+      line-height: .99;
+      letter-spacing: -4px;
+      overflow-wrap: break-word;
+    }
+
+    .hero h1 em {
+      color: var(--accent);
+      font-style: normal;
+    }
+
+    .hero p {
+      max-width: 570px;
+      color: #c3cad3;
+      font-size: 17px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      border: 0;
+      border-radius: 7px;
+      padding: 13px 19px;
+      font-weight: 750;
+      cursor: pointer;
+      text-align: center;
+      transition: transform .2s, background .2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    .btn-primary:hover {
+      background: #d6ff83;
+    }
+
+    .btn-ghost {
+      border: 1px solid #68717b;
+      color: white;
+      background: transparent;
+    }
+
+    /* Algemene sectiekoppen */
+
+    .section-head {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 24px;
+      margin-bottom: 35px;
+    }
+
+    .section-head h2 {
+      margin: 8px 0 0;
+      font-size: clamp(34px, 4vw, 52px);
+      letter-spacing: -2px;
+      line-height: 1.05;
+      overflow-wrap: break-word;
+    }
+
+    .section-head > p,
+    .section-head > div > p {
+      max-width: 430px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    /* Over ons */
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 50px;
+      align-items: start;
+    }
+
+    .about-copy {
+      font-size: 18px;
+      max-width: 600px;
+    }
+
+    .about-grid p {
+      margin-top: 0;
+      margin-bottom: 12px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+      margin-top: 35px;
+    }
+
+    .stat {
+      border-top: 2px solid var(--ink);
+      padding-top: 13px;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 28px;
+      letter-spacing: -1px;
+    }
+
+    .stat span {
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Producten */
+
+    .product-section,
+    .contact-section {
+      background: #e9ece5;
+    }
+
+    .product-intro {
+      max-width: 680px;
+      margin-top: 12px;
+      color: var(--muted);
+    }
+
+    .product-slider {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      min-width: 0;
+      background: #fff;
+      border: 1px solid #e2e5df;
+      border-radius: 14px;
+      overflow: hidden;
+    }
+
+    .product-img {
+      position: relative;
+      height: 240px;
+      background: #d7ddd3;
+    }
+
+    .product-img img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .product-tag {
+      position: absolute;
+      top: 16px;
+      left: 16px;
+      padding: 6px 10px;
+      border-radius: 5px;
+      background: var(--accent);
+      font-size: 11px;
+      font-weight: 850;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    .product-content {
+      padding: 24px;
+    }
+
+    .product-content h3 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      letter-spacing: -1px;
+    }
+
+    .product-content p {
+      margin: 0 0 18px;
+      color: var(--muted);
+    }
+
+    .product-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 12px;
+      border-top: 1px solid var(--line);
+      padding-top: 18px;
+    }
+
+    .price {
+      font-size: 18px;
+      font-weight: 800;
+    }
+
+    .price small {
+      display: block;
+      font-size: 11px;
+      font-weight: 500;
+      color: var(--muted);
+    }
+
+    .text-btn {
+      display: inline-block;
+      font-weight: 800;
+      border-bottom: 2px solid var(--accent);
+      padding-bottom: 3px;
+    }
+
+    /* BOOG-S capaciteitskeuze */
+
+    .capacity-panel {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      align-items: center;
+      gap: 30px;
+      margin-top: 24px;
+      padding: 30px;
+      border-radius: 14px;
+      background: var(--ink);
+      color: white;
+    }
+
+    .capacity-panel h3 {
+      margin: 8px 0;
+      font-size: 28px;
+      line-height: 1.1;
+      letter-spacing: -1px;
+    }
+
+    .capacity-panel p {
+      margin-bottom: 0;
+      color: #c4cbd5;
+    }
+
+    .capacity-controls {
+      min-width: 0;
+    }
+
+    .capacity-controls > label {
+      display: block;
+      margin-bottom: 9px;
+      color: #c4cbd5;
+      font-size: 12px;
+    }
+
+    .capacity-options {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 8px;
+    }
+
+    .capacity-options button {
+      min-width: 0;
+      padding: 12px 4px;
+      border: 1px solid #596270;
+      border-radius: 7px;
+      background: transparent;
+      color: #fff;
+      font-weight: 750;
+      cursor: pointer;
+      transition: background .2s, color .2s;
+    }
+
+    .capacity-options button.selected,
+    .capacity-options button:hover {
+      border-color: var(--accent);
+      background: var(--accent);
+      color: var(--ink);
+    }
+
+    .capacity-options button:focus-visible,
+    .btn:focus-visible,
+    a:focus-visible {
+      outline: 3px solid #9abf4d;
+      outline-offset: 3px;
+    }
+
+    .selected-price {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      gap: 15px;
+      margin-top: 20px;
+      padding-top: 17px;
+      border-top: 1px solid #424b58;
+    }
+
+    .selected-price strong {
+      display: block;
+      font-size: clamp(23px, 3vw, 30px);
+      line-height: 1.2;
+      overflow-wrap: anywhere;
+    }
+
+    .selected-price small {
+      display: block;
+      color: #c4cbd5;
+      font-size: 11px;
+    }
+
+    .selected-price .quote-note {
+      max-width: 180px;
+      font-size: 12px;
+      color: #c4cbd5;
+      text-align: right;
+    }
+
+    /* Projecten */
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 16px;
+    }
+
+    .project {
+      position: relative;
+      min-width: 0;
+      min-height: 260px;
+      overflow: hidden;
+      border-radius: 10px;
+      background: #d5d9d0;
+    }
+
+    .project img {
+      position: absolute;
+      inset: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform .4s;
+    }
+
+    .project:hover img {
+      transform: scale(1.05);
+    }
+
+    .project::after {
+      content: "";
+      position: absolute;
+      inset: 35% 0 0;
+      background: linear-gradient(transparent, #101820d9);
+    }
+
+    .project-label {
+      position: absolute;
+      z-index: 1;
+      bottom: 18px;
+      left: 18px;
+      right: 12px;
+      color: white;
+    }
+
+    .project-label strong {
+      display: block;
+      font-size: 18px;
+    }
+
+    .project-label span {
+      font-size: 12px;
+      color: #d9e0e4;
+    }
+
+    /* Contact */
+
+    .contact-grid {
+      display: grid;
+      grid-template-columns: minmax(0, .8fr) minmax(0, 1.2fr);
+      gap: 55px;
+    }
+
+    .contact-details {
+      display: grid;
+      gap: 17px;
+      margin-top: 30px;
+    }
+
+    .detail {
+      display: flex;
+      align-items: flex-start;
+      gap: 13px;
+      min-width: 0;
+    }
+
+    .detail-icon {
+      display: grid;
+      place-items: center;
+      width: 36px;
+      height: 36px;
+      flex: 0 0 36px;
+      border-radius: 8px;
+      background: var(--accent);
+      font-weight: 900;
+    }
+
+    .detail small {
+      display: block;
+      color: var(--muted);
+      overflow-wrap: anywhere;
+    }
+
+    .contact-form {
+      display: grid;
+      gap: 16px;
+      min-width: 0;
+      padding: 28px;
+      border-radius: 12px;
+      background: white;
+    }
+
+    .field {
+      min-width: 0;
+    }
+
+    .field label {
+      display: block;
+      margin-bottom: 6px;
+      font-size: 12px;
+      font-weight: 750;
+    }
+
+    .field input,
+    .field textarea,
+    .field select {
+      width: 100%;
+      min-width: 0;
+      padding: 12px 13px;
+      border: 1px solid #d9ded6;
+      border-radius: 6px;
+      background: #fbfcfa;
+      outline: none;
+    }
+
+    .field input:focus,
+    .field textarea:focus,
+    .field select:focus {
+      border-color: #819b4b;
+      box-shadow: 0 0 0 2px #c8f16955;
+    }
+
+    .field textarea {
+      min-height: 120px;
+      resize: vertical;
+    }
+
+    .form-row {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+
+    .form-message {
+      display: none;
+      margin: 0;
+      color: #48651f;
+      font-size: 13px;
+    }
+
+    /* Footer */
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 24px clamp(24px, 6vw, 90px);
+      background: var(--ink);
+      color: #aab2c0;
+      font-size: 12px;
+    }
+
+    .footer strong {
+      color: white;
+    }
+
+    /* Tablet */
+
+    @media (max-width: 1100px) {
+      :root {
+        --sidebar-width: 205px;
+      }
+
+      .sidebar {
+        padding: 28px 18px;
+      }
+
+      .wrap {
+        padding: 55px 30px;
+      }
+
+      .brand {
+        gap: 9px;
+        font-size: 23px;
+      }
+
+      .brand-logo {
+        width: 46px;
+        height: 46px;
+        flex-basis: 46px;
+      }
+
+      .about-grid {
+        gap: 25px;
+      }
+
+      .hero {
+        min-height: 540px;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .capacity-panel {
+        gap: 22px;
+        padding: 24px;
+      }
+
+      .contact-grid {
+        gap: 30px;
+      }
+    }
+
+    /* Mobiel */
+
+    @media (max-width: 700px) {
+      html {
+        scroll-padding-top: 125px;
+      }
+
+      .sidebar {
+        position: sticky;
+        top: 0;
+        width: 100%;
+        height: auto;
+        max-height: none;
+        padding: 10px 16px;
+        overflow: visible;
+      }
+
+      .brand {
+        gap: 9px;
+        font-size: 21px;
+      }
+
+      .brand-logo {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+      }
+
+      .brand small {
+        margin-top: 3px;
+        font-size: 9px;
+        letter-spacing: 1px;
+      }
+
+      .nav {
+        display: flex;
+        gap: 5px;
+        margin: 9px 0 0;
+        overflow-x: auto;
+        padding-bottom: 2px;
+      }
+
+      .nav a {
+        flex: 0 0 auto;
+        padding: 7px 10px;
+        font-size: 13px;
+        white-space: nowrap;
+      }
+
+      .nav a.active::before {
+        display: none;
+      }
+
+      .side-bottom {
+        display: none;
+      }
+
+      main {
+        width: 100%;
+        margin: 0;
+      }
+
+      .wrap {
+        padding: 46px 20px;
+      }
+
+      .hero {
+        min-height: 0;
+        padding-top: 58px;
+        padding-bottom: 58px;
+      }
+
+      .hero h1 {
+        font-size: clamp(42px, 11vw, 58px);
+        letter-spacing: -2.8px;
+      }
+
+      .hero p {
+        font-size: 16px;
+      }
+
+      .section-head {
+        display: block;
+      }
+
+      .section-head > p,
+      .section-head > div > p {
+        margin-top: 15px;
+      }
+
+      .about-grid,
+      .product-slider,
+      .capacity-panel,
+      .contact-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .about-grid {
+        gap: 22px;
+      }
+
+      .about-copy {
+        font-size: 17px;
+      }
+
+      .stats {
+        gap: 9px;
+      }
+
+      .stat strong {
+        font-size: 23px;
+      }
+
+      .capacity-panel {
+        padding: 22px;
+      }
+
+      .capacity-options {
+        gap: 6px;
+      }
+
+      .capacity-options button {
+        padding: 11px 2px;
+        font-size: 13px;
+      }
+
+      .selected-price {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .selected-price .quote-note {
+        max-width: none;
+        text-align: left;
+      }
+
+      .projects-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .project {
+        min-height: 200px;
+      }
+
+      .project-label {
+        left: 12px;
+        bottom: 12px;
+      }
+
+      .project-label strong {
+        font-size: 15px;
+      }
+
+      .contact-grid {
+        gap: 28px;
+      }
+
+      .form-row {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .contact-form {
+        padding: 20px;
+      }
+
+      .footer {
+        flex-direction: column;
+        padding: 22px 20px;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .wrap {
+        padding-right: 15px;
+        padding-left: 15px;
+      }
+
+      .projects-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+
+      .project {
+        min-height: 230px;
+      }
+
+      .capacity-panel {
+        padding: 17px;
+      }
+
+      .product-content {
+        padding: 19px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *,
+      *::before,
+      *::after {
+        scroll-behavior: auto !important;
+        transition-duration: .01ms !important;
+        animation-duration: .01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
-<aside class="sidebar">
-  <a class="brand" href="#home" aria-label="BOOG home"><img src="Logo-animated.gif" alt="Logo" style="width:30%"></span><span>BOOG<small>Systems & Advice</small></span></a>
-  <nav class="nav" aria-label="Main navigation">
-    <a class="active" href="#about">Over ons</a><a href="#products">Producten</a><a href="#projects">Projecten</a><a href="#contact">Contact</a>
-  </nav>
-</aside>
-<main>
-<section class="hero wrap" id="home">
-  <div><div class="eyebrow" style="color:#c8f169">BOOG | Systems & Advice</div>
-    <h1>Slimme en <br>betaalbare<em> energieopslag.</em></h1>
-    <p>Uw partner in slimme energieopslag, noodstroomvoorzieningen, voertuiginrichting en andere off-grid stroomoplossingen.</p>
-    <div class="actions"><a class="btn btn-primary" href="#products">Onze producten ↗</a><a class="btn btn-ghost" href="#contact">Neem contact op</a></div>
-  </div>
+  <aside class="sidebar">
+    <a class="brand" href="#home" aria-label="BOOG home">
+      <img
+        class="brand-logo"
+        src="Logo-animated.gif"
+        alt=""
+        width="800"
+        height="800"
+      >
+      <span class="brand-copy">
+        BOOG
+        <small>Systems &amp; Advice</small>
+      </span>
+    </a>
 
-</section>
-<section class="wrap" id="Over ons">
-  <div class="section-head"><div><div class="eyebrow">01 / Over ons</div><h2>Energieopslag<br>met een duidelijk doel.</h2></div>
-  <div class="about-grid"><div class="about-copy">Beschikbaarheid van energie is relevanter dan ooit. Wij geloven dat slimme en betaalbare energieopslag hierin een sleutelrol speelt. BOOG bouwt mobiele- en stationaire voedingsunits voor zakelijk gebruik. Onze missie is simpel: Uw energiekosten en netafhankelijkheid minimaliseren met slimme en betaalbare oplossingen, gestandaardiseerd of op maat gemaakt.</div>
-    <div><p class="muted"><strong>Altijd passend bij uw behoeften.</strong></p> In overleg adviseren wij u in het vaststellen van de meest passende opslagcapaciteit, aansluitend bij uw bedrijf of project. Past een gestandaardiseerde oplossing niet bij uw wensen? Geen probleem - wij bouwen oplossingen op maat.</p><p><strong>Bespaar op uw energierekeningen.</strong></p> Door overcapaciteit van zonnepanelen op te slaan bespaart u in terugstroomkosten en kunt u de stroom later afnemen, gratis uit uw batterij. Geen zonnepanelen? Geen probleem - sla goedkope stroom op om later af te nemen. Gebruikt u brandstof gedreven tools in uw servicewagens? Met elektrificatie kunt u besparen op brandstofkosten.<p><strong>Goedekope energieopslag.</strong></p> Bij BOOG wegen wij de voor- en nadelen van de beschikbare batterijtypes af tegenover het beoogde gebruik. Zo rusten wij onze stationaire voedingsunits uit met bewezen loodzuur technologie. Hierdoor zijn wij niet afhankelijk van buitenlandse leveranciersketens en kunnen zelfs gerecycleerde batterijen in overleg worden toegepast.</p></div>
-  </div>
+    <nav class="nav" aria-label="Hoofdnavigatie">
+      <a href="#about">Over ons</a>
+      <a href="#products">Producten</a>
+      <a href="#projects">Projecten</a>
+      <a href="#contact">Contact</a>
+    </nav>
 
-</section>
-<section class="wrap product-section" id="products">
-  <div class="section-head"><div><div class="eyebrow">02 / Products</div><h2>Maak kennis met de BOOG producten.</h2></div>
-  <div class="product-slider">
-    <article class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=85" alt="Modern energy and electrical equipment"><span class="product-tag">Mobiele toepassingen</span></div><div class="product-content"><h3>BOOG-M</h3><p>Mobiele voedingsunits, op maat gemaakt naar uw servicewagens. Lichtgewicht, compact en geschikt voor tussentijds laden door de toepassing van Lithium batterijen.</p><div class="product-bottom"><div class="price">Prijs op aanvraag<small>Afhankelijk van configuratie</small></div><a class="text-btn" href="#contact" onclick="document.getElementById('interest').value='BOOG-M';">Informeer ↗</a></div></div></article>
-    <article class="product-card"><div class="product-img"><img src="https://images.unsplash.com/photo-1473341304170-971275b4d0f?auto=format&fit=crop&w=1000&q=85" alt="Energy infrastructure"><span class="product-tag">Stationaire toepassingen</span></div><div class="product-content"><h3>BOOG-S</h3><p>Een stationaire energieopslag voor bedrijfspanden en mobiele werkplaatsen. Selecteer een van de gestandaardiseerde capaciteiten voor een prijsindicatie of vraag een offerte aan.</p><div class="product-bottom"><div class="price">3 gestandaardiseerde uitvoeringen<small>12 · 24 · 40 kWh · Custom</small></div><a class="text-btn" href="#capacity">Kies uitvoering ↗</a></div></div></article>
-  </div>
-  <div class="capacity-panel" id="capacity">
-    <div><div class="eyebrow" style="color:#c8f169">BOOG-S / Kies uitvoering</div><h3>Kies gewenste capaciteit.</h3><p>Selecteer een capaciteit en krijg direct een prijsindicatie.</p></div>
-    <div class="capacity-controls"><label for="capacitySelect">Opslagcapaciteit</label><div class="capacity-options" role="group" aria-label="Choose BOOG-S capacity"><button type="button" data-cap="12" class="selected" aria-pressed="true">12 kWh</button><button type="button" data-cap="24" aria-pressed="false">24 kWh</button><button type="button" data-cap="40" aria-pressed="false">40 kWh</button><button type="button" data-cap="Custom" aria-pressed="false">Custom</button></div><div class="selected-price"><div><small id="selectedCapacity">BOOG-S / 12 kWh</small><strong id="selectedPrice">Prijs op aanvraag</strong><small id="priceDisclaimer">Excl. BTW</small></div><div class="quote-note">Hulp nodig met uw keuze? Wij helpen uw graag met het selecteren van een passende oplossing.</div></div><a class="btn btn-primary" style="margin-top:18px;width:100%" href="#contact" onclick="document.getElementById('interest').value='BOOG-S '+document.getElementById('selectedCapacity').textContent.split('/ ')[1];">Vraag een offerte aan ↗</a></div>
-  </div>
+    <div class="side-bottom">
+      Slimme energieoplossingen.<br>
+      <span>Gebouwd om vooruit te gaan.</span>
+    </div>
+  </aside>
 
-</section>
-<section class="wrap" id="projects">
-  <div class="section-head"><div><div class="eyebrow">03 / Projecten</div><h2>Enkele van onze geleverde producten.</h2></div>
-  <div class="projects-grid">
-    <article class="project"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80" alt="Solar panels in a field"><div class="project-label"><strong>Renewable integration</strong><span>Project / 2026</span></div></article>
-    <article class="project"><img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80" alt="Solar panels under a blue sky"><div class="project-label"><strong>Solar + storage</strong><span>Project / 2026</span></div></article>
-    <article class="project"><img src="https://images.unsplash.com/photo-1473341304170-971275b4d0f?auto=format&fit=crop&w=800&q=80" alt="Electric power station"><div class="project-label"><strong>Energy infrastructure</strong><span>Project / 2025</span></div></article>
-    <article class="project"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80" alt="Renewable energy installation"><div class="project-label"><strong>Commercial site</strong><span>Project / 2025</span></div></article>
-    <article class="project"><img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80" alt="Solar panels on a rooftop"><div class="project-label"><strong>Rooftop installation</strong><span>Project / 2025</span></div></article>
-    <article class="project"><img src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80" alt="Energy project landscape"><div class="project-label"><strong>Made to fit</strong><span>Project / 2025</span></div></article>
-  </div>
+  <main>
+    <!-- Hero -->
+    <section class="hero wrap" id="home">
+      <div>
+        <div class="eyebrow" style="color:#c8f169">
+          BOOG | Systems &amp; Advice
+        </div>
 
-</section>
-<section class="wrap contact-section" id="contact">
-  <div class="section-head"><div><div class="eyebrow">04 / Contact</div><h2>Let’s talk energy.</h2></div>
-  <div class="contact-grid"><div><p class="muted">Heeft u een project in gedachten of wilt u meer weten over BOOG? Neem contact met ons op.</p><div class="contact-details"><div class="detail"><div class="detail-icon">↗</div><div><strong>Address</strong><small>[Street and number]<br>[Postcode, City, Country]</small></div></div><div class="detail"><div class="detail-icon">@</div><div><strong>Email</strong><small>[hello@yourcompany.com]</small></div></div><div class="detail"><div class="detail-icon">☎</div><div><strong>Phone</strong><small>[+00 000 000 000]</small></div></div><div class="detail"><div class="detail-icon">◷</div><div><strong>Openingstijden</strong><small>[Weekdays, 09:00–17:00]</small></div></div></div></div>
-  <form class="contact-form" id="contactForm"><div class="form-row"><div class="field"><label for="name">Uw naam *</label><input id="name" name="name" placeholder="Jane Smith" required></div><div class="field"><label for="email">Email address *</label><input id="email" name="email" type="email" placeholder="jane@company.com" required></div></div><div class="field"><label for="interest">Product / onderwerp</label><select id="interest" name="interest"><option value="">Choose a topic (optional)</option><option>BOOG-M Custom </option><option>BOOG-S Custom</option><option>BOOG-S 12 kWh</option><option>BOOG-S 24 kWh</option><option>BOOG-S 40 kWh</option><option>Other</option></select></div><div class="field"><label for="message">Hoe kunnen wij u helpen? *</label><textarea id="message" name="message" placeholder="Tell us a little about your project…" required></textarea></div><button class="btn btn-primary" type="submit">Stuur bericht ↗</button><p class="form-message" id="formMessage" role="status">Your message is ready to send. Connect this form to your email or website backend before publishing.</p></form></div>
-</section>
-<footer class="footer"><span>© <span id="year"></span> <strong>BOOG Energy Systems</strong>. All rights reserved.</span><span>Designed for a more flexible energy future.</span></footer>
-</main>
-<script>
-const capacityPrices = {12:8000,24:12000,40:16000,Custom:Op aanvraag}; // Replace null with confirmed prices, e.g. 8499
-const formatPrice = value => value == null ? 'Price on request' : new Intl.NumberFormat('en-GB',{style:'currency',currency:'EUR',maximumFractionDigits:0}).format(value);
-document.querySelectorAll('[data-cap]').forEach(button=>button.addEventListener('click',()=>{
-  document.querySelectorAll('[data-cap]').forEach(b=>{b.classList.remove('selected');b.setAttribute('aria-pressed','false')});
-  button.classList.add('selected');button.setAttribute('aria-pressed','true');
-  const cap=button.dataset.cap;
-  document.getElementById('selectedCapacity').textContent=`BOOG-S / ${cap} kWh`;
-  document.getElementById('selectedPrice').textContent=formatPrice(capacityPrices[cap]);
-  document.getElementById('interest').value=`BOOG-S ${cap} kWh`;
-}));
-document.querySelectorAll('.nav a').forEach(link=>link.addEventListener('click',()=>{
-  document.querySelectorAll('.nav a').forEach(a=>a.classList.remove('active'));link.classList.add('active');
-}));
-document.getElementById('contactForm').addEventListener('submit',e=>{e.preventDefault();document.getElementById('formMessage').style.display='block'});
-document.getElementById('year').textContent=new Date().getFullYear();
-</script>
+        <h1>
+          Slimme en<br>
+          betaalbare <em>energieopslag.</em>
+        </h1>
+
+        <p>
+          Uw partner in slimme energieopslag, noodstroomvoorzieningen,
+          voertuiginrichting en andere off-grid stroomoplossingen.
+        </p>
+
+        <div class="actions">
+          <a class="btn btn-primary" href="#products">
+            Onze producten ↗
+          </a>
+          <a class="btn btn-ghost" href="#contact">
+            Neem contact op
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Over ons -->
+    <section class="wrap" id="about">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">01 / Over ons</div>
+          <h2>Energieopslag<br>met een duidelijk doel.</h2>
+        </div>
+      </div>
+
+      <div class="about-grid">
+        <div class="about-copy">
+          Beschikbaarheid van energie is relevanter dan ooit. Wij geloven
+          dat slimme en betaalbare energieopslag hierin een sleutelrol
+          speelt. BOOG bouwt mobiele en stationaire voedingsunits voor
+          zakelijk gebruik.
+
+          <p>
+            Onze missie is simpel: uw energiekosten en netafhankelijkheid
+            minimaliseren met slimme en betaalbare oplossingen,
+            gestandaardiseerd of op maat gemaakt.
+          </p>
+        </div>
+
+        <div>
+          <p class="muted">
+            <strong>Altijd passend bij uw behoeften.</strong>
+          </p>
+
+          <p>
+            In overleg adviseren wij u bij het vaststellen van de meest
+            passende opslagcapaciteit, aansluitend bij uw bedrijf of
+            project. Past een gestandaardiseerde oplossing niet bij uw
+            wensen? Geen probleem — wij bouwen oplossingen op maat.
+          </p>
+
+          <p>
+            <strong>Bespaar op uw energierekeningen.</strong>
+          </p>
+
+          <p>
+            Door overcapaciteit van zonnepanelen op te slaan, bespaart u
+            op terugleverkosten en kunt u de stroom later uit uw batterij
+            gebruiken. Geen zonnepanelen? Geen probleem: sla goedkope
+            stroom op om die later te gebruiken. Gebruikt u
+            brandstofgedreven gereedschap in uw servicewagens? Met
+            elektrificatie kunt u besparen op brandstofkosten.
+          </p>
+
+          <p>
+            <strong>Betaalbare energieopslag.</strong>
+          </p>
+
+          <p>
+            Bij BOOG wegen wij de voor- en nadelen van beschikbare
+            batterijtypes af tegen het beoogde gebruik. Zo rusten wij
+            onze stationaire voedingsunits uit met bewezen loodzuurtechnologie.
+            Hierdoor zijn wij minder afhankelijk van buitenlandse
+            leveranciersketens en kunnen in overleg zelfs gerecyclede
+            batterijen worden toegepast.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Producten -->
+    <section class="wrap product-section" id="products">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">02 / Producten</div>
+          <h2>Maak kennis met de BOOG-producten.</h2>
+        </div>
+      </div>
+
+      <div class="product-slider">
+        <article class="product-card">
+          <div class="product-img">
+            <img
+              src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=1000&q=85"
+              alt="Energie- en elektrische installatie"
+              loading="lazy"
+            >
+            <span class="product-tag">Mobiele toepassingen</span>
+          </div>
+
+          <div class="product-content">
+            <h3>BOOG-M</h3>
+            <p>
+              Mobiele voedingsunits, op maat gemaakt voor uw servicewagens.
+              Lichtgewicht, compact en geschikt voor tussentijds laden
+              dankzij de toepassing van lithiumbatterijen.
+            </p>
+
+            <div class="product-bottom">
+              <div class="price">
+                Prijs op aanvraag
+                <small>Afhankelijk van configuratie</small>
+              </div>
+
+              <a
+                class="text-btn"
+                href="#contact"
+                data-interest="BOOG-M"
+              >
+                Informeer ↗
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-img">
+            <img
+              src="https://images.unsplash.com/photo-1473341304170-971275b4d0f?auto=format&fit=crop&w=1000&q=85"
+              alt="Energie-infrastructuur"
+              loading="lazy"
+            >
+            <span class="product-tag">Stationaire toepassingen</span>
+          </div>
+
+          <div class="product-content">
+            <h3>BOOG-S</h3>
+            <p>
+              Stationaire energieopslag voor bedrijfspanden en mobiele
+              werkplaatsen. Selecteer een standaardcapaciteit voor een
+              prijsindicatie of vraag een offerte aan.
+            </p>
+
+            <div class="product-bottom">
+              <div class="price">
+                Meerdere uitvoeringen
+                <small>12 · 24 · 40 kWh · Custom</small>
+              </div>
+
+              <a class="text-btn" href="#capacity">
+                Kies uitvoering ↗
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Capaciteitskeuze -->
+      <div class="capacity-panel" id="capacity">
+        <div>
+          <div class="eyebrow" style="color:#c8f169">
+            BOOG-S / Kies uitvoering
+          </div>
+
+          <h3>Kies de gewenste capaciteit.</h3>
+
+          <p>
+            Selecteer een capaciteit en bekijk de prijsindicatie.
+            Voor een maatwerkuitvoering kunt u een offerte aanvragen.
+          </p>
+        </div>
+
+        <div class="capacity-controls">
+          <label>Opslagcapaciteit</label>
+
+          <div
+            class="capacity-options"
+            role="group"
+            aria-label="Kies de BOOG-S-capaciteit"
+          >
+            <button
+              type="button"
+              data-cap="12"
+              class="selected"
+              aria-pressed="true"
+            >
+              12 kWh
+            </button>
+
+            <button
+              type="button"
+              data-cap="24"
+              aria-pressed="false"
+            >
+              24 kWh
+            </button>
+
+            <button
+              type="button"
+              data-cap="40"
+              aria-pressed="false"
+            >
+              40 kWh
+            </button>
+
+            <button
+              type="button"
+              data-cap="Custom"
+              aria-pressed="false"
+            >
+              Custom
+            </button>
+          </div>
+
+          <div class="selected-price" aria-live="polite">
+            <div>
+              <small id="selectedCapacity">BOOG-S / 12 kWh</small>
+              <strong id="selectedPrice">€ 8.000</strong>
+              <small id="priceDisclaimer">Indicatie, excl. btw</small>
+            </div>
+
+            <div class="quote-note">
+              Hulp nodig bij uw keuze? Wij helpen u graag bij het
+              selecteren van een passende oplossing.
+            </div>
+          </div>
+
+          <a
+            class="btn btn-primary"
+            style="margin-top:18px;width:100%"
+            href="#contact"
+            id="capacityQuoteLink"
+          >
+            Vraag een offerte aan ↗
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Projecten -->
+    <section class="wrap" id="projects">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">03 / Projecten</div>
+          <h2>Enkele van onze geleverde producten.</h2>
+        </div>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project">
+          <img
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80"
+            alt="Installatie voor hernieuwbare energie"
+            loading="lazy"
+          >
+          <div class="project-label">
+            <strong>Renewable integration</strong>
+            <span>Project / 2026</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <img
+            src="https://images.unsplash.com/photo-1509391366360-2e959784a276?auto=format&fit=crop&w=800&q=80"
+            alt="Zonnepanelen onder een blauwe lucht"
+            loading="lazy"
+          >
+          <div class="project-label">
+            <strong>Solar + storage</strong>
+            <span>Project / 2026</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <img
+            src="https://images.unsplash.com/photo-1473341304170-971275b4d0f?auto=format&fit=crop&w=800&q=80"
+            alt="Energie-infrastructuur"
+            loading="lazy"
+          >
+          <div class="project-label">
+            <strong>Energy infrastructure</strong>
+            <span>Project / 2025</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <img
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80"
+            alt="Zakelijke energie-installatie"
+            loading="lazy"
+          >
+          <div class="project-label">
+            <strong>Commercial site</strong>
+            <span>Project / 2025</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <img
+            src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=800&q=80"
+            alt="Zonnepanelen op een dak"
+            loading="lazy"
+          >
+          <div class="project-label">
+            <strong>Rooftop installation</strong>
+            <span>Project / 2025</span>
+          </div>
+        </article>
+
+        <article class="project">
+          <img
+            src="https://images.unsplash.com/photo-1497435334941-8c899ee9e8e9?auto=format&fit=crop&w=800&q=80"
+            alt="Energieproject"
+            loading="lazy"
+          >
+          <div class="project-label">
+            <strong>Made to fit</strong>
+            <span>Project / 2025</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="wrap contact-section" id="contact">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow">04 / Contact</div>
+          <h2>Let’s talk energy.</h2>
+        </div>
+      </div>
+
+      <div class="contact-grid">
+        <div>
+          <p class="muted">
+            Heeft u een project in gedachten of wilt u meer weten over BOOG?
+            Neem contact met ons op.
+          </p>
+
+          <div class="contact-details">
+            <div class="detail">
+              <div class="detail-icon" aria-hidden="true">↗</div>
+              <div>
+                <strong>Adres</strong>
+                <small>
+                  [Straat en huisnummer]<br>
+                  [Postcode, plaats, land]
+                </small>
+              </div>
+            </div>
+
+            <div class="detail">
+              <div class="detail-icon" aria-hidden="true">@</div>
+              <div>
+                <strong>E-mail</strong>
+                <small>[uw e-mailadres]</small>
+              </div>
+            </div>
+
+            <div class="detail">
+              <div class="detail-icon" aria-hidden="true">☎</div>
+              <div>
+                <strong>Telefoon</strong>
+                <small>[uw telefoonnummer]</small>
+              </div>
+            </div>
+
+            <div class="detail">
+              <div class="detail-icon" aria-hidden="true">◷</div>
+              <div>
+                <strong>Openingstijden</strong>
+                <small>[Werkdagen, 09:00–17:00]</small>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <form class="contact-form" id="contactForm">
+          <div class="form-row">
+            <div class="field">
+              <label for="name">Uw naam *</label>
+              <input
+                id="name"
+                name="name"
+                autocomplete="name"
+                placeholder="Uw naam"
+                required
+              >
+            </div>
+
+            <div class="field">
+              <label for="email">E-mailadres *</label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                autocomplete="email"
+                placeholder="naam@bedrijf.nl"
+                required
+              >
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="interest">Product / onderwerp</label>
+            <select id="interest" name="interest">
+              <option value="">Kies een onderwerp (optioneel)</option>
+              <option value="BOOG-M">BOOG-M</option>
+              <option value="BOOG-M Custom">BOOG-M Custom</option>
+              <option value="BOOG-S 12 kWh">BOOG-S 12 kWh</option>
+              <option value="BOOG-S 24 kWh">BOOG-S 24 kWh</option>
+              <option value="BOOG-S 40 kWh">BOOG-S 40 kWh</option>
+              <option value="BOOG-S Custom">BOOG-S Custom</option>
+              <option value="Overig">Overig</option>
+            </select>
+          </div>
+
+          <div class="field">
+            <label for="message">Hoe kunnen wij u helpen? *</label>
+            <textarea
+              id="message"
+              name="message"
+              placeholder="Vertel ons iets over uw project..."
+              required
+            ></textarea>
+          </div>
+
+          <button class="btn btn-primary" type="submit">
+            Bericht voorbereiden ↗
+          </button>
+
+          <p class="form-message" id="formMessage" role="status">
+            Uw bericht is ingevuld. Het formulier moet nog worden gekoppeld
+            aan een e-maildienst of websitebackend voordat berichten
+            daadwerkelijk kunnen worden verzonden.
+          </p>
+        </form>
+      </div>
+    </section>
+
+    <footer class="footer">
+      <span>
+        © <span id="year"></span>
+        <strong>BOOG Energy Systems</strong>. Alle rechten voorbehouden.
+      </span>
+      <span>Designed for a more flexible energy future.</span>
+    </footer>
+  </main>
+
+  <script>
+    "use strict";
+
+    /*
+     * Prijsindicaties:
+     * controleer deze bedragen voordat de website live gaat.
+     * Gebruik null voor een uitvoering met prijs op aanvraag.
+     */
+    const capacityPrices = {
+      "12": 8000,
+      "24": 12000,
+      "40": 16000,
+      "Custom": null
+    };
+
+    const currencyFormatter = new Intl.NumberFormat("nl-NL", {
+      style: "currency",
+      currency: "EUR",
+      maximumFractionDigits: 0
+    });
+
+    function formatPrice(value) {
+      if (value === null || value === undefined) {
+        return "Prijs op aanvraag";
+      }
+
+      return currencyFormatter.format(value);
+    }
+
+    const capacityButtons = document.querySelectorAll("[data-cap]");
+    const selectedCapacity = document.getElementById("selectedCapacity");
+    const selectedPrice = document.getElementById("selectedPrice");
+    const priceDisclaimer = document.getElementById("priceDisclaimer");
+    const interestSelect = document.getElementById("interest");
+    const quoteLink = document.getElementById("capacityQuoteLink");
+
+    let currentCapacity = "12";
+
+    function updateCapacity(capacity) {
+      currentCapacity = capacity;
+
+      capacityButtons.forEach((button) => {
+        const isSelected = button.dataset.cap === capacity;
+
+        button.classList.toggle("selected", isSelected);
+        button.setAttribute("aria-pressed", String(isSelected));
+      });
+
+      const price = capacityPrices[capacity];
+      const capacityLabel = capacity === "Custom"
+        ? "Custom"
+        : `${capacity} kWh`;
+
+      selectedCapacity.textContent = `BOOG-S / ${capacityLabel}`;
+      selectedPrice.textContent = formatPrice(price);
+
+      priceDisclaimer.textContent = price === null
+        ? "Prijs en configuratie in overleg"
+        : "Prijsindicatie, excl. btw";
+
+      if (interestSelect) {
+        interestSelect.value = `BOOG-S ${capacityLabel}`;
+      }
+    }
+
+    capacityButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        updateCapacity(button.dataset.cap);
+      });
+    });
+
+    if (quoteLink) {
+      quoteLink.addEventListener("click", () => {
+        const capacityLabel = currentCapacity === "Custom"
+          ? "Custom"
+          : `${currentCapacity} kWh`;
+
+        if (interestSelect) {
+          interestSelect.value = `BOOG-S ${capacityLabel}`;
+        }
+      });
+    }
+
+    /*
+     * Vul het onderwerp in wanneer iemand vanuit een productkaart
+     * doorklikt naar het contactformulier.
+     */
+    document.querySelectorAll("[data-interest]").forEach((link) => {
+      link.addEventListener("click", () => {
+        const interest = link.dataset.interest;
+
+        if (interestSelect) {
+          interestSelect.value = interest;
+        }
+      });
+    });
+
+    /*
+     * Navigatie: markeer de aangeklikte link.
+     */
+    const navLinks = document.querySelectorAll(".nav a");
+
+    navLinks.forEach((link) => {
+      link.addEventListener("click", () => {
+        navLinks.forEach((item) => {
+          item.classList.remove("active");
+        });
+
+        link.classList.add("active");
+      });
+    });
+
+    /*
+     * Contactformulier.
+     *
+     * Let op: dit toont alleen een melding.
+     * Voor daadwerkelijk verzenden is een backend of e-mailservice nodig.
+     */
+    const contactForm = document.getElementById("contactForm");
+    const formMessage = document.getElementById("formMessage");
+
+    if (contactForm && formMessage) {
+      contactForm.addEventListener("submit", (event) => {
+        event.preventDefault();
+
+        if (!contactForm.reportValidity()) {
+          return;
+        }
+
+        formMessage.style.display = "block";
+      });
+    }
+
+    /*
+     * Automatisch het huidige jaartal tonen.
+     */
+    document.getElementById("year").textContent =
+      new Date().getFullYear();
+
+    /*
+     * Stel de initiële capaciteitskeuze expliciet in.
+     */
+    updateCapacity("12");
+  </script>
 </body>
 </html>
