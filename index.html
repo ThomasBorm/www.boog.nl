@@ -287,23 +287,30 @@
       margin: 0;
     }
 
-    /* Over ons */
+   /* Over ons */
 
     .about-grid {
       display: grid;
       grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 50px;
+      gap: clamp(24px, 4vw, 50px);
       align-items: start;
+      margin-top: 20px;
     }
-
-    .about-copy {
-      font-size: 18px;
-      max-width: 600px;
+    
+    .about-column {
+      min-width: 0;
     }
-
-    .about-grid p {
+    
+    .about-heading {
+      margin: 0 0 18px;
+      font-size: clamp(30px, 3.5vw, 46px);
+      line-height: 1.05;
+      letter-spacing: -1.5px;
+    }
+    
+    .about-column p {
       margin-top: 0;
-      margin-bottom: 12px;
+      margin-bottom: 14px;
     }
 
     .muted {
@@ -1011,68 +1018,71 @@
 
     <!-- Over ons -->
     <section class="wrap" id="about">
-      <div class="section-head">
-        <div>
-          <div class="eyebrow">01 / Over ons</div>
-          <h2>Energieopslag<br>met een duidelijk doel.</h2>
-        </div>
-      </div>
-
+      <div class="eyebrow">01 / Over ons</div>
+    
       <div class="about-grid">
-        <div class="about-copy">
-          Beschikbaarheid van energie is relevanter dan ooit. Wij geloven
-          dat slimme en betaalbare energieopslag hierin een sleutelrol
-          speelt. BOOG bouwt plug-and-play energieopslagsystemen voor mobiele en stationaire toepassingen.  
-
+        <!-- Linkerkolom -->
+        <div class="about-column">
+          <h2 class="about-heading">
+            Energieopslag<br>met een duidelijk doel.
+          </h2>
+    
+          <p>
+            Beschikbaarheid van energie is relevanter dan ooit. Wij geloven
+            dat slimme en betaalbare energieopslag hierin een sleutelrol
+            speelt. BOOG bouwt plug-and-play energieopslagsystemen voor
+            mobiele en stationaire toepassingen.
+          </p>
+    
           <p>
             Onze missie is simpel: uw energiekosten en netafhankelijkheid
             minimaliseren met slimme en betaalbare oplossingen,
             gestandaardiseerd of op maat gemaakt.
           </p>
         </div>
-
-        <div>
-          <p>
-            <strong>Altijd passend bij uw behoeften.</strong>
-          </p>
-
+    
+        <!-- Rechterkolom -->
+        <div class="about-column">
+          <h2 class="about-heading">
+            Altijd passend bij uw behoeften.
+          </h2>
+    
           <p>
             In overleg adviseren wij u bij het vaststellen van de meest
             passende opslagcapaciteit, aansluitend bij uw bedrijfspand en/of
-            bedrijfsvoering. Past een gestandaardiseerde oplossing niet? Geen probleem — wij bouwen oplossingen op maat.
+            bedrijfsvoering. Past een gestandaardiseerde oplossing niet?
+            Geen probleem — wij bouwen oplossingen op maat.
           </p>
-
+    
+          <p><strong>Bespaar op uw energierekeningen.</strong></p>
+    
           <p>
-            <strong>Bespaar op uw energierekeningen.</strong>
+            Door goedkope stroom - of overcapaciteit van zonnepanelen -
+            op te slaan in onze stationaire units, bespaart u op
+            stroomnetkosten en terugleverkosten. Gebruikt u
+            brandstof aangedreven gereedschap in uw servicewagens?
+            Met een mobiele voedingsunit aan boord kunt u elektrificeren
+            en besparen op brandstofkosten.
           </p>
-
-          <p>
-            Door goedkope stroom - of overcapaciteit van zonnepanelen - 
-            op te slaan in onze staionaire units, bespaart u op stroomnetkosten en terugleverkosten. 
-            Gebruikt u brandstof aangedreven gereedschap in uw servicewagens? 
-            Met een mobiele voedingsunit aan boord kunt u elektrificeren en besparen op brandstofkosten.
-          </p>
-
-          <p>
-            <strong>Betaalbare energieopslag.</strong>
-          </p>
-
+    
+          <p><strong>Betaalbare energieopslag.</strong></p>
+    
           <p>
             Bij BOOG wegen wij de voor- en nadelen van verschillende
             batterijtechnieken af tegen het beoogde gebruik. Zo rusten wij
-            onze stationaire voedingsunits uit met bewezen loodzuurtechnologie, 
-            waardoor wij gebruik kunnen maken van volwassen toeleveringsketens. 
-            In overleg met de klant kunnen er zelfs gerecycleerde of jong gebruikte batterijen worden toegepast. 
-            Hierdoor kunnen wij ten alle tijden de vereiste investeringskosten minimaliseren. 
+            onze stationaire voedingsunits uit met bewezen loodzuurtechnologie,
+            waardoor wij gebruik kunnen maken van volwassen toeleveringsketens.
+            In overleg met de klant kunnen er zelfs gerecycleerde of jong
+            gebruikte batterijen worden toegepast. Hierdoor kunnen wij ten
+            alle tijden de vereiste investeringskosten minimaliseren.
           </p>
-
+    
+          <p><strong>Plug-and-play systemen.</strong></p>
+    
           <p>
-            <strong>Plug-and-play systemen.</strong>
-          </p>
-
-          <p>
-            De BOOG-producten zijn uitgerust met een eigen verdeelkast en kunnen via 230V of 
-            krachtstroomaansluitingen worden opgeladen. Hierdoor zijn er geen installatiekosten.  
+            De BOOG-producten zijn uitgerust met een eigen verdeelkast en
+            kunnen via 230V of krachtstroomaansluitingen worden opgeladen.
+            Hierdoor zijn er geen installatiekosten.
           </p>
         </div>
       </div>
